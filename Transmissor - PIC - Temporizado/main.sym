@@ -1,0 +1,81 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028-02D @STRING529
+02E     consumo
+02F     sistema
+030     high
+031     low
+032     contador
+033-034 @sprintf_string
+035     MAIN.x
+036-037 RF_Send.ip
+038     RF_Send.consumo
+039     RF_Send.sistema
+03A     @delay_ms1.P1
+03A     RF_Send.@SCRATCH1
+03B     RF_Send.@SCRATCH2
+03C     @PRINTF_X_1200_50_49.P1
+03C     RF_Send.@SCRATCH3
+03D     @PRINTF_X_1200_50_49.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+00002F  EXT_isr
+000034  @delay_ms1
+000048  RF_Send
+000067  @PRINTF_X_1200_50_49
+000099  @cinit1
+000099  MAIN
+0000AE  @cinit2
+
+Project Directory:
+    C:\Users\Beto_Business\Desktop\Medição Remota - Julho\Transmissor - PIC - Temporizado\
+
+Project Files:
+    main.c                                                  [05-ago-22 19:46  CRC=7B22F222]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F627A.h [28-jun-16 13:57  CRC=07791564]
+
+Source signature=8A151CEA
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=03AE
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F627A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

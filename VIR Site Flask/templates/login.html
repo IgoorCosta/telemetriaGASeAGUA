@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}VIR Inteligência{% endblock %}
+{% block content %}
+<head>
+	<meta charset="utf-8">
+	<title>SialDrill Tecnologia</title>
+	
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font: 85% arial, hevetica, sans-serif;
+			text-align: center;
+			color: #333;
+			background: rgb(243, 243, 243);
+			overflow-x: hidden;
+            overflow-y: hidden;
+			}
+
+		a:hover { color: #fff891; }
+
+		h1, h2 { margin: 0 0 .5em; }
+
+		h1 {
+			color: #6d0000;
+			font: 180% Arial;
+			text-align: center;
+			font-weight: bold;
+			text-decoration: none;
+			text-decoration: underline;
+			}
+		
+		h2 {
+			color: #6d0000;
+			font: 130% Arial;
+			text-align: left;
+			font-weight: bold;
+			text-decoration: none;
+			}
+		
+		h4 {
+			color: #000000;
+			font: 100% Arial;
+			text-align: center;
+			text-decoration: none;
+			float: center;
+			}
+
+		/* container styles */
+
+		#container {
+			width: auto;
+			text-align: center;
+			background: rgb(255, 255, 255);
+			/*border: 6px solid rgb(54, 40, 40);*/
+			}
+
+		/* mainnav styles */
+
+		#mainnav {
+			width: 100%;
+			background: #2e2e2e;
+			color: #ffffff;
+			font: 90% Arial;
+			padding: 4px 0;
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+		}
+
+		/* contents styles */
+
+		#contents {
+			vertical-align: top;
+			display: inline-block;
+			text-align: center;
+			width: 100%;
+			height: 81vh;
+			color: #000000;
+			font: 110% Arial;
+			font-weight: bold;
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+			}
+
+		/* footer styles */
+
+		#footer {
+			width: 100%;
+			clear: both;
+			color: #ffffff;
+			text-align: center;
+			font: 90% Arial;
+			background: #2e2e2e;
+			padding: 4px 0;
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+			}
+
+	</style>
+</head>
+<body>
+<div id="container">
+	<div id="mainnav">Login: Apenas para Condomínios Cadastrados.</div>
+	<div id="contents"> 
+
+		<form action="#" method="post">
+			<br/><br/><br/>
+			<p>Selecione o seu Condomínio:</p>
+			<select required="required" name="condominios">
+				<option selected="selected" value=""></option>
+				{% for variavel in arquivos %}
+					<option value={{arquivos.index(variavel)}}>{{variavel}}</option>
+				{% endfor %}
+			</select>
+
+			<p>Digite a senha:</p>
+			<p><input type="password" required="required" name="senha" placeholder="                Senha"/></p>
+			<p><input type="submit" value="Conecte-se"/>
+			<input type="reset" value="Reset"></p>  
+		</form>
+
+		{% if error %}  
+        	<p><strong>Erro</strong>: {{error}}</p>  
+    	{% endif %} 
+
+	</div>
+	<div id="footer">VIR Tecnologia</div>
+</div>
+</body>
+
+{% endblock %}

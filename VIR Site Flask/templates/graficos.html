@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+{% block title %}VIR Inteligência{% endblock %}
+
+{% block content %}
+
+<head>
+	<meta charset="utf-8">
+	<title>SialDrill Tecnologia</title>
+	
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font: 85% arial, hevetica, sans-serif;
+			text-align: center;
+			color: #333;
+			background: rgb(243, 243, 243);
+			}
+
+		a:hover { color: #fff891; }
+
+		h1, h2 { margin: 0 0 .5em; }
+
+		h1 {
+			color: #6d0000;
+			font: 180% Arial;
+			text-align: center;
+			font-weight: bold;
+			text-decoration: none;
+			text-decoration: underline;
+			}
+		
+		h2 {
+			color: #6d0000;
+			font: 130% Arial;
+			text-align: left;
+			font-weight: bold;
+			text-decoration: none;
+			}
+		
+		h4 {
+			color: #000000;
+			font: 120% Arial;
+			text-align: center;
+			font-weight: bold;
+			text-decoration: none;
+			float: center;
+			}
+
+		/* container styles */
+
+		#container {
+			width: auto;
+			text-align: center;
+			background: rgb(255, 255, 255);
+			/*border: 6px solid rgb(54, 40, 40);*/
+			}
+
+		/* mainnav styles */
+
+		#mainnav {
+			width: 100%;
+			background: #2e2e2e;
+			color: #ffffff;
+			font: 90% Arial;
+			padding: 4px 0;
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+		}
+
+		/* menu styles */
+
+		#menu {
+			width: 100%;
+			height: auto;
+				
+			float: left;
+			background: rgb(243, 243, 243);
+
+			text-align: center;
+			font: 130% Arial;
+			color: hsl(0, 0%, 0%);
+
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+			}
+
+		#menu a {
+			color: #000000;
+			text-decoration: none;
+		}
+
+		/* contents styles */
+
+		#contents {
+			display: inline;
+			padding-top: 3.5%;
+			padding-bottom: 3.5%;
+			padding-left: 2%;
+ 			width: 83%;
+			height: auto;
+ 			float: right;
+			background: #ffffff;
+			color: #000000;
+			text-align: left;
+			font: 100% Arial;
+			line-height: normal;
+			text-decoration: none;
+			border-left: 2px solid #2e2e2e;
+			}
+
+		/* footer styles */
+
+		#footer {
+			width: 100%;
+			clear: both;
+			color: #ffffff;
+			text-align: center;
+			font: 90% Arial;
+			background: #2e2e2e;
+			padding: 4px 0;
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+			}
+
+	</style>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+</head>
+<body>
+	<div id="container">
+		<div id="mainnav">Inteligência Condominial</div>
+		<div id="menu">
+			<div id="contents">
+				<h1>Condomínio {{cond}}</h1>
+				<br/><br/><br/>
+				<center>
+				<form action="#" method="post">
+					<b>Selecione o ponto:</b><br/><br/>
+					<select required="required" name="ponto">
+						<option selected="selected" value=""></option>
+						{% for variavel in list %}
+							<option value={{list.index(variavel)}}>{{variavel}}</option>
+						{% endfor %}
+					</select>
+					<p><input type="submit" value="Carregar"/>
+					<input type="reset" value="Reset"></p> 
+				</form>
+				<br/>
+				{% if x == 1 %}
+					<h4>{{ title2 }}</h4>
+					<canvas id="chart2" width="500" height="350"></canvas>
+					<script>
+						var barData = {
+							labels : [
+							{% for item in labels2 %}
+							"{{ item }}",
+							{% endfor %}
+							],
+
+							datasets : [{
+							fillColor: "rgba(167,28,33, 0.4)",
+							strokeColor: "rgba(167,28,33, 0.7)",
+							pointColor: "rgba(151,187,205,1)",
+							data : [
+								{% for item in values2 %}
+								"{{ item }}",
+								{% endfor %}
+							]
+							}]
+						}
+
+						var mychart = document.getElementById("chart2").getContext("2d");
+
+						steps = 1
+						max = {{max2}}
+
+						new Chart(mychart).Bar(barData, {
+						scaleOverride: true,
+						scaleSteps: steps,
+						scaleStepWidth: Math.ceil(max / steps),
+						scaleStartValue: 0,
+						scaleShowVerticalLines: true,
+						scaleShowGridLines : true,
+						barShowStroke : true,
+						scaleShowLabels: true
+						});
+
+					</script>
+					<br/>
+					<h4>{{ title3 }}</h4>
+					<canvas id="chart3" width="500" height="350"></canvas>
+					<script>
+						var barData = {
+							labels : [
+							{% for item in labels3 %}
+							"{{ item }}",
+							{% endfor %}
+							],
+
+							datasets : [{
+							fillColor: "rgba(18, 22, 236, 0.4)",
+							strokeColor: "rgba(18, 22, 236, 0.7)",
+							pointColor: "rgba(151,187,205,1)",
+							data : [
+								{% for item in values3 %}
+								"{{ item }}",
+								{% endfor %}
+							]
+							}]
+						}
+
+						var mychart = document.getElementById("chart3").getContext("2d");
+
+						steps = 1
+						max = {{max3}}
+
+						new Chart(mychart).Bar(barData, {
+						scaleOverride: true,
+						scaleSteps: steps,
+						scaleStepWidth: Math.ceil(max / steps),
+						scaleStartValue: 0,
+						scaleShowVerticalLines: true,
+						scaleShowGridLines : true,
+						barShowStroke : true,
+						scaleShowLabels: true
+						});
+
+					</script>
+					<br/>
+					<p>Até este instante a sua conta mensal será de R${{gastos}}.</p>
+					<br/>
+					<h4>{{ title1 }}</h4>
+					<canvas id="chart" width="500" height="350"></canvas>
+					<script>
+						var barData = {
+							labels : [
+							{% for item in labels1 %}
+							"{{ item }}",
+							{% endfor %}
+							],
+					
+							datasets : [{
+							fillColor: "rgba(47, 221, 12, 0.4)",
+							strokeColor: "rgba(47, 221, 12, 0.7)",
+							pointColor: "rgba(151,187,205,1)",
+							data : [
+								{% for item in values1 %}
+								"{{ item }}",
+								{% endfor %}
+							]
+							}]
+						}
+				
+						var mychart = document.getElementById("chart").getContext("2d");
+					
+						steps = 2
+						max = {{max1}}
+				
+						new Chart(mychart).Bar(barData, {
+						scaleOverride: true,
+						scaleSteps: steps,
+						scaleStepWidth: Math.ceil(max / steps),
+						scaleStartValue: 0,
+						scaleShowVerticalLines: true,
+						scaleShowGridLines : true,
+						barShowStroke : true,
+						scaleShowLabels: true
+						});
+					
+					</script>
+				{% endif %}
+				  </center>
+			</div>
+
+    		<br/><br/><br/>
+			<image width="27" src="/static/img/home.png" href="{{ url_for('home', cond=cond) }}"> </image>
+			<a class="menu" href="{{ url_for('home', cond=cond) }}">Home</a> <br/><br/><br/>
+			<image src="/static/img/cadastros.png" href="{{ url_for('cadastros', cond=cond) }}"></image>
+			<a class="menu" href="{{ url_for('cadastros', cond=cond) }}">Cadastros</a> <br/><br/><br/>
+			<image src="/static/img/gráficos.png" href="{{ url_for('graficos', cond=cond) }}"></image>
+			<a class="menu" href="{{ url_for('graficos', cond=cond) }}">Gráficos</a> <br/><br/><br/>
+			<image src="/static/img/relatório.png" href="{{ url_for('relatorios', cond=cond) }}"></image>
+			<a class="menu" href="{{ url_for('relatorios', cond=cond) }}">Relatórios</a> <br/><br/><br/>
+		</div> 
+		<div id="footer">VIR Inteligência</div>
+	</div>
+</body>
+
+{% endblock %}

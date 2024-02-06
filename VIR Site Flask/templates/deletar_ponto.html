@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% block title %}VIR Inteligência{% endblock %}
+
+{% block content %}
+
+<head>
+	<meta charset="utf-8">
+	<title>SialDrill Tecnologia</title>
+	
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font: 85% arial, hevetica, sans-serif;
+			text-align: center;
+			color: #333;
+			background: rgb(243, 243, 243);
+			}
+
+		a:hover { color: #fff891; }
+
+		h1, h2 { margin: 0 0 .5em; }
+
+		h1 {
+			color: #6d0000;
+			font: 180% Arial;
+			text-align: center;
+			font-weight: bold;
+			text-decoration: none;
+			text-decoration: underline;
+			}
+		
+		h2 {
+			color: #6d0000;
+			font: 130% Arial;
+			text-align: left;
+			font-weight: bold;
+			text-decoration: none;
+			}
+		
+		h4 {
+			color: #000000;
+			font: 100% Arial;
+			text-align: center;
+			text-decoration: none;
+			float: center;
+			}
+
+		/* container styles */
+
+		#container {
+			width: auto;
+			text-align: center;
+			background: rgb(255, 255, 255);
+			/*border: 6px solid rgb(54, 40, 40);*/
+			}
+
+		/* mainnav styles */
+
+		#mainnav {
+			width: 100%;
+			background: #2e2e2e;
+			color: #ffffff;
+			font: 90% Arial;
+			padding: 4px 0;
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+		}
+
+		/* menu styles */
+
+		#menu {
+			width: 100%;
+			height: auto;
+				
+			float: left;
+			background: rgb(243, 243, 243);
+
+			text-align: center;
+			font: 120% Arial;
+			color: hsl(0, 0%, 0%);
+
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+			}
+
+		#menu a {
+			color: #000000;
+			text-decoration: none;
+		}
+
+		/* contents styles */
+
+		#contents {
+			display: inline;
+			padding-top: 3.5%;
+			padding-bottom: 3.5%;
+			padding-left: 2%;
+ 			width: 80%;
+			height: auto;
+ 			float: right;
+			background: #ffffff;
+			color: #000000;
+			text-align: center;
+			font: 100% Arial;
+			line-height: normal;
+			text-decoration: none;
+			border-left: 2px solid #2e2e2e;
+			}
+
+		/* footer styles */
+
+		#footer {
+			width: 100%;
+			clear: both;
+			color: #ffffff;
+			text-align: center;
+			font: 90% Arial;
+			background: #2e2e2e;
+			padding: 4px 0;
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+			}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="mainnav">Inteligência Condominial</div>
+		<div id="menu">
+			<div id="contents">
+				<h1>Administrador</h1>
+				<form action="#" method="post">
+					<br/><br/><br/>
+					<b>Selecione o Condomínio onde está o ponto:</b><br/><br/>
+					<select required="required" name="condominios">
+						<option selected="selected" value=""></option>
+						{% for variavel in arquivos %}
+							<option value={{arquivos.index(variavel)}}>{{variavel}}</option>
+						{% endfor %}
+					</select><br/>
+					<p><input type="submit" value="Carregar"/>
+					<input type="reset" value="Reset"></p>  
+					<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				</form>
+			</div>
+			<br/><br/><br/>
+    		<a class="menu" href="{{ url_for('adicionar_condominio')}}">- Adicionar Condomínio</a> <br/><br/><br/>
+    		<a class="menu" href="{{ url_for('adicionar_ponto')}}">- Adicionar Ponto</a> <br/><br/><br/>
+    		<a class="menu" href="{{ url_for('visualizar_informacoes')}}">- Visualizar Informações</a> <br/><br/><br/>
+    		<a class="menu" href="{{ url_for('atualizar')}}">- Atualizar Informações</a> <br/><br/><br/>
+            <a class="menu" href="{{ url_for('deletar_ponto')}}">- Deletar Ponto</a> <br/><br/><br/>
+            <a class="menu" href="{{ url_for('deletar_condominio')}}">- Deletar Condomínio</a> <br/><br/><br/>
+		</div> 
+		<div id="footer">VIR Inteligência</div>
+	</div>
+</body>
+
+{% endblock %}

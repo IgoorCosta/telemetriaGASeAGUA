@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <title>{% block title %}Sialdrill Inteligência{% endblock %}</title>	
+	<style>
+
+		/* container styles */
+        
+        #frente {
+            width: 100%;
+            height: 45px;
+			background: rgb(3, 3, 3);
+            /*display: flex;*/
+            border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+            border-top: 2px solid #2e2e2e;
+            border-bottom: 2px solid #2e2e2e;
+		}
+
+		.frent {
+            float: left;
+            list-style-type: none;
+            padding: 0 0 0 4%;
+            list-style: none;
+        }
+
+		.frent a {
+			text-align: center;
+            font: 125% Arial;
+			color: rgb(255, 255, 255);
+            justify-content: center;
+            margin-top: 12.5px;
+            text-shadow: 2px 4px 5px #eee, 0 0 1px red;
+            text-decoration: none;
+		}
+        
+        .frent2 {
+            display: inline;
+            float: right;
+            padding: 0 0 0 30%;
+            list-style-type: none;
+            list-style: none
+        }
+
+        .frent2 a {
+			text-align: right;
+            font: 130% Arial;
+            font-weight: bold;
+			color: rgb(255, 255, 255);
+            justify-content: center;
+            margin-top: 12.5px;
+			padding: 0 40px 0 0;
+            text-shadow: 2px 4px 5px #eee, 0 0 1px red;
+            text-decoration: none;
+		}
+
+		.image {
+            float: left;
+			margin-top: 2px;
+			border: 5px solid #ffffff;
+			}
+    </style>
+    <link rel="icon" href="static/img/Logo.jpg">
+</head>
+<body>
+    <div id="container">
+        <div id="frente">
+            <a class="frent" href="/">
+                <image width="60" src="/static/img/Logo.jpg">
+            </a>
+            <li class="frent">
+    		    <a class="frent" href="/empresa">Empresa</a>
+		    </li>
+            <li class="frent">
+    		    <a class="frent" href="/tecnologia">Tecnologia</a>
+		    </li>
+            <li class="frent">
+    		    <a class="frent" href="/produtos">Produtos</a>
+		    </li>
+            <li class="frent">
+    		    <a class="frent" href="/projetos">Projetos</a>
+		    </li>
+            <li class="frent2">
+    		    <a class="frent2" href="/login">Login</a>
+		    </li>
+        </div>
+	</div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

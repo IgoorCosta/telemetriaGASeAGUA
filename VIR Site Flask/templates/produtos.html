@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}VIR Inteligência{% endblock %}
+{% block content %}
+<head>
+	<meta charset="utf-8">
+	<title>SialDrill Tecnologia</title>
+	
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font: 85% arial, hevetica, sans-serif;
+			text-align: center;
+			color: #333;
+			background: rgb(243, 243, 243);
+			}
+
+		a:hover { color: #fff891; }
+
+		h1, h2 { margin: 0 0 .5em; }
+
+		h1 {
+			color: #6d0000;
+			font: 180% Arial;
+			text-align: center;
+			font-weight: bold;
+			text-decoration: none;
+			text-decoration: underline;
+			}
+		
+		h2 {
+			color: #6d0000;
+			font: 130% Arial;
+			text-align: left;
+			font-weight: bold;
+			text-decoration: none;
+			}
+		
+		h4 {
+			color: #000000;
+			font: 100% Arial;
+			text-align: center;
+			text-decoration: none;
+			float: center;
+			}
+
+		/* container styles */
+
+		#container {
+			width: auto;
+			text-align: center;
+			background: rgb(255, 255, 255);
+			/*border: 6px solid rgb(54, 40, 40);*/
+			}
+
+		/* mainnav styles */
+
+		#mainnav {
+			width: 100%;
+			background: #2e2e2e;
+			color: #ffffff;
+			font: 90% Arial;
+			padding: 4px 0;
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+		}
+
+		/* contents styles */
+
+		#contents {
+			vertical-align: top;
+			display: inline-block;
+			text-align: center;
+			width: 100%;
+			height: 160vh;
+			color: #000000;
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+			}
+
+		/* footer styles */
+
+		#footer {
+			width: 100%;
+			clear: both;
+			color: #ffffff;
+			text-align: center;
+			font: 90% Arial;
+			background: #2e2e2e;
+			padding: 4px 0;
+			border-left: 2px solid #2e2e2e;
+            border-right: 2px solid #2e2e2e;
+			}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="mainnav">Produtos</div>
+        <div id="contents">
+			<h1>Sobre os nossos produtos</h1>
+		</div>
+		<div id="footer">VIR Inteligência</div>
+	</div>
+</body>
+
+{% endblock %}
